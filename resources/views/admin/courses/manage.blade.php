@@ -3,6 +3,7 @@
 @section('content')
     {{-- ### --}}
 
+    {{-- bredcrumb --}}
     <div class="mt-5 flex flex-col gap-10 px-5">
         <div class="breadcrumb flex items-center gap-[30px]">
             <a href="#" class="text-[#7F8190] last:font-semibold last:text-[#0A090B]">Home</a>
@@ -14,6 +15,8 @@
             <a href="#" class="text-[#7F8190] last:font-semibold last:text-[#0A090B]">Course Details</a>
         </div>
     </div>
+    {{-- breadcrumb --}}
+
     <div class="header ml-[70px] mt-10 flex w-[940px] items-center justify-between pr-[70px]">
         <div class="flex items-center gap-6">
             <div class="relative flex h-[150px] w-[150px] shrink-0 overflow-hidden">
@@ -93,6 +96,7 @@
             </div>
         </div>
     </div>
+
     <div id="course-test" class="mx-[70px] mt-[30px] w-[870px]">
         <h2 class="text-2xl font-bold">Course Tests</h2>
         <div class="mt-2 flex flex-col gap-[30px]">
@@ -133,6 +137,26 @@
 
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('more-button');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            menuButton.addEventListener('click', function() {
+                dropdownMenu.classList.toggle('hidden');
+            });
+
+            // Close the dropdown menu when clicking outside of it
+            document.addEventListener('click', function(event) {
+                const isClickInside = menuButton.contains(event.target) || dropdownMenu.contains(event
+                    .target);
+                if (!isClickInside) {
+                    dropdownMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
 
     {{-- ### --}}
 @endsection

@@ -73,7 +73,7 @@
                                 class="flex w-full items-center justify-between text-sm font-bold">
                                 Manage
                             </a>
-                            <a href="course-students.html"
+                            <a href="{{ route('dashboard.course.course_student.index', $course) }}"
                                 class="flex w-full items-center justify-between text-sm font-bold">
                                 Students
                             </a>
@@ -95,7 +95,6 @@
             </div>
         @empty
         @endforelse
-
     </div>
 
     {{-- ### --}}

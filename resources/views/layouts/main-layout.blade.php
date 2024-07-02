@@ -1,12 +1,18 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('/css/output.css') }}" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    {{-- Fomts --}}
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
+
+    {{-- CSS --}}
+    <link href="{{ asset('/css/output.css') }}" rel="stylesheet">
+
 </head>
 
 <body class="font-poppins text-[#0A090B]">
@@ -33,7 +39,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href=""
+                        <a href="{{ route('dashboard.courses.index') }}"
                             class="flex h-11 items-center gap-[14px] rounded-full bg-[#2B82FE] p-[10px_16px] transition-all duration-300 hover:bg-[#2B82FE]">
                             <div>
                                 <img src="{{ asset('/images/icons/note-favorite.svg') }}" alt="icon">
@@ -105,13 +111,16 @@
                         </a>
                     </li>
                     <li>
-                        <a href="signin.html"
-                            class="flex h-11 items-center gap-[14px] rounded-full p-[10px_16px] transition-all duration-300 hover:bg-[#2B82FE]">
-                            <div>
-                                <img src="{{ asset('/images/icons/security-safe.svg') }}" alt="icon">
-                            </div>
-                            <p class="font-semibold transition-all duration-300 hover:text-white">Logout</p>
-                        </a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button href="signin.html"
+                                class="flex h-11 w-full items-center gap-[14px] rounded-full p-[10px_16px] transition-all duration-300 hover:bg-[#2B82FE]">
+                                <div>
+                                    <img src="{{ asset('/images/icons/security-safe.svg') }}" alt="icon">
+                                </div>
+                                <p class="font-semibold transition-all duration-300 hover:text-white">Logout</p>
+                            </button>
+                        </form>
                     </li>
                 </ul>
             </div>
@@ -168,7 +177,7 @@
                     </div>
                 </div>
                 {{-- profile --}}
-                
+
             </div>
 
             @yield('content')

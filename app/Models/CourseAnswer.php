@@ -11,4 +11,9 @@ class CourseAnswer extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = ['id'];
+
+    public function courseQuestion()
+    {
+        return $this->belongsTo(CourseQuestion::class, 'course_question_id');
+    }
 }

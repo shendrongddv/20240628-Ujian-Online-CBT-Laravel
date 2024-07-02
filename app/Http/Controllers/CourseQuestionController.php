@@ -88,6 +88,7 @@ class CourseQuestionController extends Controller
         //
         $course = $courseQuestion->course();
         $students = $course->students()->orderBy('id', 'DESC')->get();
+        dd($students);
         return view('admin.questions.edit', [
             'courseQuestion' => $courseQuestion,
             'course' => $course,

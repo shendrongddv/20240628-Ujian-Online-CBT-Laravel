@@ -86,7 +86,7 @@
                 </select>
             </div>
         </div>
-        <div class="flex flex-col gap-[10px]">
+        {{-- <div class="flex flex-col gap-[10px]">
             <p class="font-semibold">Course Type</p>
             <div class="flex items-center gap-5">
                 <a href="#"
@@ -177,7 +177,7 @@
                 class="h-[24px] w-[24px] appearance-none rounded-full ring ring-[#EEEEEE] checked:border-[3px] checked:border-solid checked:border-white checked:bg-[#2B82FE]"
                 checked />
             I have read terms and conditions
-        </label>
+        </label> --}}
         <div class="flex items-center gap-5">
             <a href=""
                 class="h-[52px] w-full rounded-full bg-[#0A090B] p-[14px_20px] text-center font-semibold text-white transition-all duration-300">Add
